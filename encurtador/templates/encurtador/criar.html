@@ -1,0 +1,17 @@
+{% extends 'encurtador/base.html' %}
+
+{% block conteudo %}
+<p>O encurtador de URLs da Globo.com</p>
+
+{% if not sucesso %}
+<form action="" method="post">{% csrf_token %}
+    
+{{ form.destino }}
+
+<button type="submit">Encurtar!</button>
+</form>
+{% else %}
+{{ form.url_curta }}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'encurtador/base.html' %}
+
+{% block conteudo %}
+
+<h1>gerenciamento</h1>
+
+{% for url in urls_curtas %}
+<p><a href="{{ url.destino }}" target="_blank">{{ request.get_host }}/{{ url.url_curta }}</a></p>
+{% endfor %}
+
+{% endblock %}
