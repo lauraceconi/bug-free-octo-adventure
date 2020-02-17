@@ -22,7 +22,8 @@ from encurtador import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.criar_url),
-    path('gerenciar/', views.gerenciar),
-    re_path(r'^(?P<url_curta>[a-zA-Z0-9_-]{6})/$', views.acessar_url)
+    path('', views.criar_url, name='criar'),
+    path('gerenciar/', views.gerenciar, name='gerenciar'),
+    path('excluir/<pk>', views.excluir, name='excluir'),
+    re_path(r'^(?P<slug>[a-zA-Z0-9_-]{6})/$', views.acessar_url, name='acessar_url')
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

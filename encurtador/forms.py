@@ -1,10 +1,17 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 
-from encurtador.models import Encurtador
+from encurtador.models import URLCurta
 
-class EncutadorForm(ModelForm):
-    url_curta = forms.CharField(required=False)
+class URLCurtaForm(ModelForm):
+    """
+    Formulário para criação de uma URL curta
+    """
+
+    destino = forms.URLField(
+        widget=TextInput(attrs={'placeholder': 'Insira a URL para encurtar'})
+    )
+
     class Meta:
-        model = Encurtador
+        model = URLCurta
         fields = ['destino']
