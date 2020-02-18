@@ -4,8 +4,8 @@
 
 {% for url in urls_curtas %}
 <p>
-    <a href="/excluir/{{ url.pk }}" class="btn excluir">Excluir</a>
-    <a href="{% url 'acessar_url' url.slug %}" target="_blank" class="url-curta">{{ request.get_host }}/{{ url.slug }}</a> <span class="acessos">{% if not url.acessos %} Nenhum acesso{% else %}{{ url.acessos }} {% if url.acessos == 1 %}acesso{% else %}acessos{% endif %}</span>{% endif %}
+    <a href="{% url 'excluir' url.pk %}" class="btn excluir">Excluir</a>
+    <a href="{% url 'acessar_url' url.slug %}" target="_blank" class="url-curta">{{ url.url_completa }}</a> <span class="acessos">{% if not url.acessos %} Nenhum acesso{% else %}{{ url.acessos }} {% if url.acessos == 1 %}acesso{% else %}acessos{% endif %}</span>{% endif %}
     <br/><span class="url-destino">{{ url.destino }}</span>
     {% if not forloop.last %}
     <hr>

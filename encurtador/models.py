@@ -1,4 +1,5 @@
 import random, string
+from django.conf import settings
 from django.db import models
 
 class URLCurta(models.Model):
@@ -20,16 +21,24 @@ class URLCurta(models.Model):
     # Data e hora de criação da URL, para ordenação
     data_criacao = models.DateTimeField(auto_now=True)
 
+    @property
+    def url_completa(self):
+        """
+        Retorna o host concatenado com a slug
+        """
+        return '%s%s/' % (settings.HOST, self.slug)
+
     def __str__(self):
         """
         Representação do objeto
         """
-        return self.slug
+        return self.slug    
 
     def save(self, *args, **kwargs):
         """
         Método sobreescrito para criar e atribuir a URL curta
         """
         if self.pk is None:
-            self.slug = ''.join([random.choice(string.ascii_letters) for _ in range(6)])
+            self.slug = ''.join([random.choice(
+                            string.ascii_letters) for _ in range(6)])
         super(URLCurta, self).save(*args, **kwargs)
