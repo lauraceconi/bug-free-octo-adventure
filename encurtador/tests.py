@@ -9,7 +9,7 @@ class EncurtadorTestCase(TestCase):
         """
         Cria os objetos
         """
-        for i in range(100):
+        for i in range(500):
             URLCurta.objects.create(destino='https://www.globo.com/')
 
     def teste_redirecionamento(self):

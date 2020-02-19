@@ -1,14 +1,14 @@
 SHELL := /bin/bash
 
-setup:
-	python3 -m venv env
-	source env/bin/activate
-	env/bin/pip3 install Django==2.2.1
-	#python3 manage.py migrate
-	#source env/bin/deactivate
+docker_build:
+	sudo docker build . --tag=encurtador:latest
+
+docker_run:
+	sudo docker run -i -t --rm -p 8000:8000 encurtador /bin/bash
+
+migrate:
+	python3 manage.py migrate
 
 run:
-	source env/bin/activate
 	python3 manage.py runserver 0.0.0.0:8000
-	xdg-open http://localhost:8000
 
