@@ -7,7 +7,7 @@ Os seguintes softwares são necessários para executar este projeto:
 - Make
 
 ### Rodar a aplicação no navegador
-1. Clonar o repositório `https://github.com/SelecaoGlobocom/laura-ceconi-coding-challenge`.
+1. Clonar o repositório `https://github.com/lceconi/bug-free-octo-adventure`
 2. Acessar a pasta.
 3. Executar o comando `make setup` e aguardar até o fim da criação da imagem do projeto.
 4. Executar o comando `make run` e acessar o endereço `http://localhost:8000` no navegador.
